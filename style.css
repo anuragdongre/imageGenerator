@@ -83,6 +83,7 @@
 .image-gallery{
     display: flex;
     gap: 15px;
+    flex-wrap: wrap;
     padding: 0 15px;
     max-width: 1250px;
     margin: 50px 0;
@@ -90,10 +91,14 @@
 }
 .image-gallery .img-card{
     width: 285px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     aspect-ratio: 1 / 1;
     border-radius: 5px;
     overflow: hidden;
     position: relative;
+    background: #f2f2f2;;
 }
 .image-gallery .img-card img{
     width: 100%;
@@ -101,6 +106,10 @@
     object-fit: cover;
 }
 
+.image-gallery .img-card.loading img{
+    width:80px;
+    height: 80px;
+}
 .image-gallery .img-card .download-btn{
     position: absolute;
     bottom: 15px;
@@ -109,11 +118,14 @@
     height:36px ;
     width: 36px;
     border-radius: 50%;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
 }
 
+.image-gallery .img-card:not(.loading):hover .download-btn{
+    display: flex;
+}
 .image-gallery .img-card .download-btn img{
     width: 14px;
     height: 14px;
